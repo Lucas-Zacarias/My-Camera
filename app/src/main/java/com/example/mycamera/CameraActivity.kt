@@ -108,6 +108,9 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun bindPreviewUseCase() {
+        if(cameraProvider == null){
+            return
+        }
         if(cameraProvider != null){
             cameraProvider!!.unbind(previewUseCase)
         }
@@ -135,6 +138,9 @@ class CameraActivity : AppCompatActivity() {
             .build()
         val barcodeScanner : BarcodeScanner  = BarcodeScanning.getClient(options)
 
+        if(cameraProvider == null){
+            return
+        }
         if(cameraProvider != null){
             cameraProvider!!.unbind(qrAnalysisUseCase)
         }
@@ -165,6 +171,9 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun bindTakePhotoUseCase(){
+        if(cameraProvider == null){
+            return
+        }
         if(cameraProvider != null){
             cameraProvider!!.unbind(imageCapture)
         }
